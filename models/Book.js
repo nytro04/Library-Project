@@ -17,7 +17,11 @@ const BookSchema = new Schema({
   genre: {
     type: String,
     required: true
+  },
+  date: {
+    type: Date,
+    default: Date.now
   }
 });
 
-module.exports = Book = mongoose.model("book", BookSchema);
+module.exports = Book = mongoose.model("books", BookSchema);
