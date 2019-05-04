@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Books Library</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm-12 col-md-8 col-md-offset-2">
+          <h1 class="page-header">Book List</h1>
+
+          <div class="table-responsive">
+            <table class="table table-striped">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Genre</th>
+                </tr>
+              </thead>
+              <tbody>
+                {{range .}}
+                <tr>
+                  <td><%= ID%></td>
+                  <td><%= Title%></td>
+                  <td><%= Author%></td>
+                  <!-- <td>{{.Details.ReleaseDate}}<br />{{.Details.Genre}}<br />{{.Details.Language}}</td> -->
+                  <td><%= Genre%></td>
+                  <td>
+                    <a class="btn btn-info btn-xs" href="/books/<%= ID%>"
+                      >details</a
+                    >
+                  </td>
+                </tr>
+                <!-- {{end}} -->
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+            <p class="pull-right">
+              <a href="/api/books" class="btn btn-primary">Add New Book</a>
+            </p>
+            <p class="pull-right">
+              <a href="/api/books/:id" class="btn btn-primary">Delete</a>
+            </p>
+            <p class="pull-right">
+              <a href="/api/books/:id" class="btn btn-primary">Edit</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+  </body>
+</html>

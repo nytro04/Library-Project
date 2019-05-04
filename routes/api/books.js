@@ -14,8 +14,8 @@ const bookValidation = require("../../validation/book");
 router.get("/", (req, res) => {
   Book.find()
     .sort({ date: -1 })
-    .then(books => res.json(books))
-    .catch(err => res.status(404).json({ nobooksfound: "No Books found" }));
+    .then(books => res.render("../../views/index.ejs", { data: books }));
+  // .catch(err => res.status(404).render({ nobooksfound: "No Books found" }));
 });
 
 // @route       POST api/books

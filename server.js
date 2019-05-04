@@ -2,6 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const cookieParser = require("cookie-parser");
+const cors = require("cors");
+const path = require("path");
 
 require("dotenv").config();
 
@@ -15,6 +17,11 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(cors());
+
+//Views config
+app.set("views", path.join(__dirname, "views"));
+app.set("view engine", "ejs");
 
 //Connect to mongoose
 mongoose
